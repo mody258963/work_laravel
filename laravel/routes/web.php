@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [AlbumController::class, 'index'])->name('albums.index');
-Route::post('/albums', [AlbumController::class, 'store'])->name('albums.store');
+Route::post('/albums', [AlbumController::class, 'addalbum'])->name('albums.store');
 Route::delete('/albums/{album}', [AlbumController::class, 'destroy'])->name('albums.destroy');
 Route::post('/albums/{album}/pictures', [PictureController::class, 'addPicture'])->name('albums.addPicture');
 Route::delete('/pictures/{picture}', [PictureController::class, 'destroy'])->name('pictures.destroy');

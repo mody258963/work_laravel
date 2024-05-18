@@ -21,9 +21,9 @@ class PictureController extends BaseApiController
 
     public function addPicture(Request $request, Album $album)
     {
-        $request->validate(['name' => 'required']);
-        $album->pictures()->$this->pictureRepository->create($request->all());;
-        return redirect()->route('albums.index');
+        $this->pictureRepository->photoupload($album,$request);
+
+        return redirect()->back()->with('success', 'Image uploaded successfully!');
 
     }
 

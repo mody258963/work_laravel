@@ -38,6 +38,10 @@
                         <div class="form-group">
                             <input type="text" name="name" class="form-control" placeholder="Picture Name" required>
                         </div>
+                        <div class="form-group">
+                            <label for="image">Choose an image:</label>
+                            <input type="file" class="form-control" id="path" name="path"  required>
+                        </div>
                         <button type="submit" class="btn btn-secondary">Add Picture</button>
                     </form>
                     

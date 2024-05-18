@@ -20,23 +20,23 @@ class AlbumController extends BaseApiController
 
     public function index()
     {
-         Album::with('pictures')->get();
-         return view('albums.index', compact('albums'));
+        $albums = Album::with('pictures')->get();
+         return view('albums.index',[
+            'albums' => $albums
+        ]); 
     }
 
 
 
-
-    public function addalbum(Request $request,$category,$teacher) {
+    public function addalbum(Request $request) {
         $request->validate(['name' => 'required']);
-        $this->albumRepository->create($request->all());
+        $data = $this->albumRepository->create($request->all());
         return redirect()->route('albums.index');
     }
 
 
 
-
-
+ 
     public function destroy(Album $album){
          $this->albumRepository->delete($album);
          return redirect()->route('albums.index');
